@@ -152,14 +152,14 @@ class metroSys(object):
 			print("Cannot find a path between <{0}> and <{1}>".format(valueTokeys[self.start][0], valueTokeys[self.destination][0]))
 			return None
 
-		print("The shortest path from <{0}> to <{1}>:".format(valueTokeys[self.start][0], valueTokeys[self.destination][0]))
+		userChosen = "Quickest" if self.lessStop is False else "Shortest"
+		print("The {0} Path from <{1}> to <{2}>:".format(userChosen, valueTokeys[self.start][0], valueTokeys[self.destination][0]))
 		print(" ┌─ {0}".format(valueTokeys[self.start][0]))
 		for station in self.path[1:len(self.path)-1]:
 			if station != self.start or station != self.destination:
 				print(" ├─ {0}".format(valueTokeys[station][0]))
 		print(" └─ {0}".format(valueTokeys[self.destination][0]))
-		userChosen = "<Shortest Time>" if self.lessStop is False else "<Shortest Path>"
-		print("The Result is Depended On {0}\nTotal stations: {1}\nChange Train: {2} Times\nTotal time: {3}".format(userChosen, len(self.path), change, self.total_cost))
+		print("The Result is Depended On <{0} Path>\nTotal stations: {1}\nChange Train: {2} Times\nTotal time: {3}".format(userChosen, len(self.path), change, self.total_cost))
 
 # Simple Console UI
 
